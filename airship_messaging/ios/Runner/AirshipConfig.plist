@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>developmentAppKey</key>
+	<string>4noZG0iQSped7bbFMdZyOA</string>
+	<key>developmentAppSecret</key>
+	<string>qgZgWQFySX2uJ8jLq8dzAQ</string>
+	<key>productionAppKey</key>
+	<string>4noZG0iQSped7bbFMdZyOA</string>
+	<key>productionAppSecret</key>
+	<string>qgZgWQFySX2uJ8jLq8dzAQ</string>
+	<key>URLAllowListScopeOpenUrl</key>
+	<array>
+		<string>*</string>
+	</array>
+</dict>
+</plist>
