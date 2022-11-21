@@ -39,7 +39,7 @@ Future<String> getChannelId() async {
 
 Future<bool> get _canUseAirship async {
   final canRunAirship = Platform.isIOS ? (await DeviceInfoPlugin().iosInfo).isPhysicalDevice : Platform.isAndroid;
-  final permissionGranted = await Permission.notification.request().isGranted;
+  const permissionGranted = true; // await Permission.notification.request().isGranted;
   return canRunAirship && permissionGranted;
 }
 

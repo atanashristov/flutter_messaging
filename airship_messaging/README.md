@@ -25,6 +25,8 @@ import 'package:airship_flutter/airship_flutter.dart';
 
 ### Android setup
 
+Follow the steps outlined in [Android Getting Started](https://docs.airship.com/platform/android/getting-started/).
+
 1. Download the Firebase google-services.json file and place it inside android/app.
 
 2. Apply the `com.google.gms.google-services` plugin to the android/app.
@@ -52,3 +54,81 @@ The handler is executed in a separate background isolate outside the application
 so it is not possible to interact with the application UI or update application state from the handler.
 Care should be taken to ensure the handler logic completes as soon as possible in order to avoid 
 ANRs (Application Not Responding), which may trigger the OS to automatically terminate the process.
+
+### iOS Setup
+
+Follow the steps outlined in [iOS Getting Started](https://docs.airship.com/platform/ios/getting-started/)
+
+#### Apple steps
+
+You need from https://developer.apple.com/:
+
+- Team ID (2MJB7W47PE)
+- Bundle ID (com.atanashristov.airshipMessagingStaging)
+
+1. Create AppID at developer.apple.com
+
+Create AppID [here](https://developer.apple.com/account/resources/identifiers/add/bundleId)
+
+Your app needs the following capabilities, so make sure you select this:
+
+- Push Notifications
+
+2. Add key at developer.apple.com
+
+Add new key [here](https://developer.apple.com/account/resources/authkeys/add)
+
+Give it a name (Auth Key with Push Notifications). Note:: Apple allows only two keys with push notifications per team.
+
+Make sure you enable:
+
+- Apple Push Notifications service (APNs)
+
+IMPORTANT: Create the key and download the key file. This is a one time oportunity to doanload the key file.
+
+Note the Key ID (5UJVG7K6L2).
+
+#### Airship steps
+
+You will need your downloaded .p8 file and noted Team, Bundle, and Key IDs from Apple steps.
+
+Go to Go to Settings » Channels » Mobile Apps » iOS and create new iOS configurartion wirth the Token-based Authentication.
+
+#### App setup steps
+
+Open the project in XCode: `open ios/Runner.xcworkspace `
+
+From Runner -> Signing & Capabilities adjust the team and the bundle identifier (com.atanashristov.airshipMessagingStaging).
+
+Add the following capabilities to the application target:
+
+- Push Notifications
+- Background Modes > Remote Notifications
+
+Create a plist file `AirshipConfig.plist` and include it in your application's target:
+
+```xml
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>developmentAppKey</key>
+  <string>4noZG...</string>
+  <key>developmentAppSecret</key>
+  <string>qgZg...</string>
+  <key>productionAppKey</key>
+  <string>4noZG...</string>
+  <key>productionAppSecret</key>
+  <string>qgZg...</string>
+  <key>URLAllowListScopeOpenUrl</key>
+  <array>
+    <string>*</string>
+  </array>
+</dict>
+</plist>
+```
+
+The file should be in subdirectory "ios\Runner" next to the Info.plist. Include it in the project from XCode.
+
+Make sure that the iOS deployment target version (specified in Xcode) and the platform version (specified in your app’s Podfile) both match the current minimum target version. Mismatch between these versions can cause an “airship_flutter not found” error.
+
+
