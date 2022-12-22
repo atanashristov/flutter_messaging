@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "882967456335",
+    "project_id": "airship-messaging-staging",
+    "storage_bucket": "airship-messaging-staging.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882967456335:android:b55cf9d3f575223517583a",
+        "android_client_info": {
+          "package_name": "com.atanashristov.airship_messaging_staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882967456335-65ectou5nnvd7rn2fl0u5ol53trkamau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB67oVltoOgFKuU9YKfbyOguR27cFoQYl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882967456335-65ectou5nnvd7rn2fl0u5ol53trkamau.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
