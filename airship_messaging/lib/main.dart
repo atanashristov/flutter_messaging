@@ -3,9 +3,11 @@ import 'dart:io';
 
 import 'package:airship_flutter/airship_flutter.dart' as airship;
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 Future<void> _backgroundMessageHandler(Map<String, dynamic> payload, airship.Notification? notification) async {
   log("[airship] _backgroundMessageHandler: payload=$payload, notification=$notification");
@@ -46,6 +48,19 @@ Future<bool> get _canUseAirship async {
 void main() async {
   // Required to make the main function async
   WidgetsFlutterBinding.ensureInitialized();
+
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+
+  await Firebase.initializeApp();
+  // Pass all uncaught "fatal" errors from the framework to Crashlytics
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -160,7 +175,19 @@ class HomeScreen extends StatelessWidget {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: children,
+                children: [
+                  ...children,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        log('Error here');
+                        throw Exception('this button sucks!');
+                      },
+                      child: const Text('Hit me'),
+                    ),
+                  ),
+                ],
               ),
             );
           },

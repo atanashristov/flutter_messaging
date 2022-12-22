@@ -29,6 +29,49 @@
             {
               "client_id": "882967456335-65ectou5nnvd7rn2fl0u5ol53trkamau.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "882967456335-pv0hqpm6gn8uc2h7hcm7lqb7h54j9oq1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.atanashristov.airshipMessagingStaging"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882967456335:android:1dd890e2068606ea17583a",
+        "android_client_info": {
+          "package_name": "com.urbanairship.sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882967456335-65ectou5nnvd7rn2fl0u5ol53trkamau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB67oVltoOgFKuU9YKfbyOguR27cFoQYl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882967456335-65ectou5nnvd7rn2fl0u5ol53trkamau.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "882967456335-pv0hqpm6gn8uc2h7hcm7lqb7h54j9oq1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.atanashristov.airshipMessagingStaging"
+              }
             }
           ]
         }

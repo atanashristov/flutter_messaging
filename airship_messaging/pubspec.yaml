@@ -32,6 +32,8 @@ dependencies:
   airship_flutter: ^6.2.0
   cupertino_icons: ^1.0.2
   device_info_plus: ^8.0.0
+  firebase_core: ^2.4.0
+  firebase_crashlytics: ^3.0.7
   flutter:
     sdk: flutter
   permission_handler: ^10.2.0
