@@ -131,4 +131,10 @@ The file should be in subdirectory "ios\Runner" next to the Info.plist. Include 
 
 Make sure that the iOS deployment target version (specified in Xcode) and the platform version (specified in your app’s Podfile) both match the current minimum target version. Mismatch between these versions can cause an “airship_flutter not found” error.
 
+If you get “airship_flutter not found” error, run from `ios`:
+
+```sh
+pod repo update && pod install
+```
+
 
